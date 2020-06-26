@@ -14,6 +14,12 @@ NPM:
 ```
 npm run start
 ```
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+
 ## Small explanation
 
 I've removed all the ```*``` and ````~```` digits in package.json to ensure that when you install the dependencies in your side, it will be exact the packages that this project using. Just to prevent libs version problem 

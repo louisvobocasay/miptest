@@ -13,15 +13,24 @@ export class PostsComponent implements OnInit {
 
   // Declaration
   posts: IPost[]
+  isLoading: boolean;
 
   constructor(
     private readonly service: PostsService,
-    private readonly route: Router
-  ) { }
+    private readonly router: Router
+  ) {
+    this.isLoading = false;
+  }
 
   ngOnInit(): void {
     this.service.getPosts()
-      .subscribe((posts: IPost[]) => this.posts = posts)
+      .subscribe((posts: IPost[]) => {
+        this.posts = posts.reverse()
+      })
+  }
+
+  onRowClick(post: IPost) {
+    this.router.navigate(['posts', post.id,'update'])
   }
 
 }

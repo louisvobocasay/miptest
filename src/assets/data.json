@@ -6,7 +6,11 @@
     },
     {
       "id": 2,
-      "body": "bar"
+      "body": "bar was modified"
+    },
+    {
+      "id": 3,
+      "body": "The new post"
     }
   ],
   "comments": [
@@ -54,6 +58,16 @@
       "id": 9,
       "body": "newest comment",
       "postId": 1
+    },
+    {
+      "id": 10,
+      "body": "new comment",
+      "postId": 2
+    },
+    {
+      "id": 11,
+      "body": "Hello, this is the very first comment",
+      "postId": 3
     }
   ]
 }

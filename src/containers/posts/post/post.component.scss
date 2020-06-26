@@ -1,0 +1,13 @@
+.post-form {
+  padding: 2vh 1vh;
+  border: none;
+  textarea {
+    color: var(--textColor);
+    border-radius: 5px;
+    border: 1px solid var(--textWhiteGrayColor);
+    padding: 10px;
+  }
+  button{ 
+    margin-top: 2vh;
+  }
+}

@@ -1,0 +1,17 @@
+.post {
+  &__title {
+    color: var(--textColor);
+    margin-top: 2vh;
+  }
+  &__btn {
+    &-create {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+  &__table {
+    margin-top: 2vh;
+  }
+}

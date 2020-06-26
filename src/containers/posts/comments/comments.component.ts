@@ -12,10 +12,13 @@ import { CommentsService } from './comments.service';
 })
 export class CommentsComponent implements OnInit {
 
-  post: IPost
+  clearTimeoutManager: any;
+
+  post: IPost;
   isLoaded: boolean;
 
-  isLoadingComments: boolean
+  isLoadingComments: boolean;
+  isSubmitting: boolean;
   comments: IComment[];
   comment: string;
   errorMessage: string;
@@ -31,6 +34,7 @@ export class CommentsComponent implements OnInit {
     this.isLoadingComments = true;
     this.comment = "";
     this.newCommentId = -1;
+    this.isSubmitting = false;
 
   }
 
@@ -59,21 +63,29 @@ export class CommentsComponent implements OnInit {
         this.comments = comments.reverse();
       })
   }
+
+
   sendComment() {
-
-    this.commentsService.sendComment({
-      id: this.newCommentId,
-      body: this.comment,
-      postId: this.post.id
-    })
-      .subscribe((result: any) => {
-        console.log(result);
-
-      }, (error) => {
-        this.errorMessage = error.message + '\n' + error.error;
-        console.log(error);
-
+    // Prevent multiple click on the same time
+    clearTimeout(this.clearTimeoutManager)
+    this.clearTimeoutManager = setTimeout(() => {
+      this.isSubmitting = true;
+      this.commentsService.sendComment({
+        id: this.newCommentId,
+        body: this.comment,
+        postId: this.post.id
       })
+        .subscribe((result: any) => {
+          console.log(result);
+          this.isSubmitting = false;
+        }, (error) => {
+          this.errorMessage = error.message + '\n' + error.error;
+          console.log(error);
+
+        })
+    }, 300);
+
+
 
   }
 

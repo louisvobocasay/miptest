@@ -1,1 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary: #ff5300;
+  --textColor: #4a4a4a;
+  --textdark: #000;
+  --textWhiteGrayColor: #a4a4a4;
+  --whiteBg: #f2f2f2;
+}
+
+.page-title {
+  margin-top: 2vh;
+  color: var(--textColor);
+}
+
+.btn {
+  &-go-back {
+    padding: 10px 5px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+}
+
+.empty-text {
+  color: var(--textWhiteGrayColor);
+  font-size: 12px;
+  font-style: italic;
+}

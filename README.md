@@ -1,27 +1,66 @@
-# Miptest
+# MIP Test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.9.
+## How to start this project
 
-## Development server
+I created a scripts for launching json-server and angular site in only one
+To start, please run the command below:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Yarn:
+```
+yarn start
+```
 
-## Code scaffolding
+NPM:
+```
+npm run start
+```
+## Small explanation
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+I've removed all the ```*``` and ````~```` digits in package.json to ensure that when you install the dependencies in your side, it will be exact the packages that this project using. Just to prevent libs version problem 
 
-## Build
+# Requirement
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### json-server
 
-## Running unit tests
+Create a `data.json` file :
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+$ cat data.json 
+{
+  "posts": [
+    { "id": 1, "body": "foo" },
+    { "id": 2, "body": "bar" }
+  ],
+  "comments": [
+    { "id": 1, "body": "baz", "postId": 1 },
+    { "id": 2, "body": "qux", "postId": 2 }
+  ]
+}
+```
 
-## Running end-to-end tests
+And start your rest api (using docker or npm, as you want).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+```
+$ docker run -it --rm -p 8090:80 -v $PWD/data.json:/data/db.json clue/json-server
+```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### test
+
+During this test, you will have to develop (**as a professional developer**) a simple CRUD.
+
+Please develop an angular website to deal with blog posts :
+  - list
+  - create 
+  - update
+
+Also, a page allowing to share comments on a blog post.
+
+
+We will be attentive to the **code quality** (clean code design patterns).
+
+Please make this test in 1h or 1h30 and to send me back (by mail) the link of the github repository hosting your code.
+
+Good luck. Robin.
+
+

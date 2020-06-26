@@ -1,5 +1,3 @@
-
-
 <table class="table">
   <thead>
     <tr>
@@ -13,9 +11,7 @@
       <td>{{i}}</td>
       <td>{{post.body}}</td>
       <td>
-        <small>
-          <a [routerLink]="'/posts/' + post.id + '/comment'">See comment</a>
-        </small>
+        <a [routerLink]="[ post.id, 'comment']">See comment</a>
       </td>
     </tr>
   </tbody>

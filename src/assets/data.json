@@ -1,10 +1,59 @@
 {
   "posts": [
-    { "id": 1, "body": "foo" },
-    { "id": 2, "body": "bar" }
+    {
+      "id": 1,
+      "body": "foo"
+    },
+    {
+      "id": 2,
+      "body": "bar"
+    }
   ],
   "comments": [
-    { "id": 1, "body": "baz", "postId": 1 },
-    { "id": 2, "body": "qux", "postId": 2 }
+    {
+      "id": 1,
+      "body": "baz",
+      "postId": 1
+    },
+    {
+      "id": 2,
+      "body": "qux",
+      "postId": 2
+    },
+    {
+      "id": 3,
+      "body": "This is new comment",
+      "postId": 2
+    },
+    {
+      "id": 4,
+      "body": "New comment for post 1",
+      "postId": 1
+    },
+    {
+      "id": 5,
+      "body": "One more comment",
+      "postId": 1
+    },
+    {
+      "id": 6,
+      "body": "fdsa",
+      "postId": 1
+    },
+    {
+      "id": 7,
+      "body": "test",
+      "postId": 1
+    },
+    {
+      "id": 8,
+      "body": "new comment it's me",
+      "postId": 1
+    },
+    {
+      "id": 9,
+      "body": "newest comment",
+      "postId": 1
+    }
   ]
 }

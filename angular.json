@@ -122,8 +122,12 @@
               "devServerTarget": "miptest:serve:production"
             }
           }
+        },
+        "options": {
+          "proxyConfig": "src/proxy.conf.json"
         }
       }
-    }},
+    }
+  },
   "defaultProject": "miptest"
 }

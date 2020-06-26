@@ -68,6 +68,11 @@
       "id": 11,
       "body": "Hello, this is the very first comment",
       "postId": 3
+    },
+    {
+      "id": 12,
+      "body": "",
+      "postId": 3
     }
   ]
 }

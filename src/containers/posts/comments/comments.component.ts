@@ -12,21 +12,22 @@ import { CommentsService } from './comments.service';
 })
 export class CommentsComponent implements OnInit {
 
+  // Declarations
   clearTimeoutManager: any;
 
   post: IPost;
-  isLoaded: boolean;
-
-  isLoadingComments: boolean;
-  isSubmitting: boolean;
+  
   comments: IComment[];
   comment: string;
   errorMessage: string;
   newCommentId: number;
 
+  isLoaded: boolean;
+  isLoadingComments: boolean;
+  isSubmitting: boolean;
+
   constructor(
     private readonly service: PostsService,
-    private readonly router: Router,
     private readonly activatedRoute: ActivatedRoute,
     private readonly commentsService: CommentsService
   ) {
@@ -40,6 +41,7 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // Get post ID from the url
     this.activatedRoute.params.subscribe((params: { [key: string]: string }) => {
       this.service.getPostById(params['id'])
         .subscribe((post: IPost) => {
@@ -49,6 +51,7 @@ export class CommentsComponent implements OnInit {
         })
     })
 
+    //Get total commentsfor calculating new id for new record
     this.commentsService.getComments()
       .subscribe((comments: IComment[]) => {
         this.newCommentId = comments.length + 1;
@@ -56,6 +59,7 @@ export class CommentsComponent implements OnInit {
 
   }
 
+  // Get comments from the service
   getComments() {
     this.isLoadingComments = true;
     this.commentsService.getCommentsByPostId(this.post.id)
@@ -64,7 +68,9 @@ export class CommentsComponent implements OnInit {
       })
   }
 
-
+  /**
+   * Leave a comment for the post
+   */
   sendComment() {
     // Prevent multiple click on the same time
     clearTimeout(this.clearTimeoutManager)
@@ -80,6 +86,7 @@ export class CommentsComponent implements OnInit {
           this.isSubmitting = false;
         }, (error) => {
           this.errorMessage = error.message + '\n' + error.error;
+          this.isSubmitting = false;
           console.log(error);
 
         })

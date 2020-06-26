@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import { IComment, VComment as VCreateComment } from '../../../models';
+import { validateSync } from 'class-validator';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +33,11 @@ export class CommentsService {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type', 'application/json');
 
-    if(body.body.trim() === ""){
-      throw Error("Body could not be empty")
+    const errors = validateSync(body);
+    if (errors.length) {
+      console.log(errors);
+      
+      return throwError(errors);
     }
     return this.httpClient.post(environment.baseUrl + '/comments', body, {
       headers: headers

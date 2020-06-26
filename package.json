@@ -7,7 +7,7 @@
     "start:ng": "ng serve --disable-host-check --proxy-config proxy.conf.json",
     "start": "yarn start:sv & yarn start:ng",
     "build": "ng build",
-    "test": "ng test",
+    "test": "yarn start:sv & ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
